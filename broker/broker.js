@@ -1,7 +1,7 @@
 //* Required modules */
 const http = require("http");
 const path = require("path");
-var url = require("url");
+const url = require("url");
 const b = require("bonescript");
 
 //* Networking Variables */
@@ -10,23 +10,30 @@ const PORT = 4020;
 
 //* Database */
 let storedUsers = [
-   { id: "0001", name: "Nolan Gilmore", age: 99, major: "cpe" },
-   { id: "0002", name: "Caleb Goodman", age: 99, major: "cpe" },
-   { id: "0003", name: "Johnny Lozano", age: 99, major: "cpe" },
-   { id: "0004", name: "Anthony Lopez", age: 99, major: "cpe" },
-   { id: "0005", name: "Alem Sahic", age: 99, major: "cpe" },
-   { id: "0006", name: "Etta Achere", age: 99, major: "cpe" },
+   { id: "0001", name: "Nolan", age: 99, major: "cpe" },
+   { id: "0002", name: "Caleb", age: 99, major: "cpe" },
+   { id: "0003", name: "Johnny", age: 99, major: "cpe" },
+   { id: "0004", name: "Anthony", age: 99, major: "cpe" },
+   { id: "0005", name: "Alem", age: 99, major: "cpe" },
+   { id: "0006", name: "Etta", age: 99, major: "cpe" },
 ];
 
-//* Functions
+const Etta = [];
+const Anthony = [];
+const Alem = [];
+const Nolan = [];
+const Johnny = [];
+const Caleb = [];
+
+//* Functions */
+
 /**
- * Receives data from ESP and finds user from
- * stored user data on the BBB
+ * Finds data of user with ID
  *
  * @param { string } targetId id of target user to be added to laptop subscriber
  * @returns { Object } calledUser target user json
  */
-function findUserData(targetId) {
+function findUserById(targetId) {
    if (targetId === 0) return;
 
    let calledUser = storedUsers.filter((user) => {
@@ -37,10 +44,46 @@ function findUserData(targetId) {
 
 /* Creates a web-server and facilitates API calls */
 const server = http.createServer((req, res) => {
-   var urlName = url.parse(req.url);
-   console.log(urlName);
-   if (req.url === path.normalize(req.url)) {
-      res.end("Hi");
+   let q = url.parse(req.url, true);
+   let qdata = q.query;
+
+   /* Check proper url format */
+   if (q.pathname === "/group5/find") {
+      try {
+         let user = findUserById(qdata.user);
+         let target = findUserById(qdata.target);
+
+         if (target === undefined || qdata.user === qdata.target) {
+            res.writeHead(404, { "Content-Type": "text/plain" });
+            res.end("Unexpected error");
+         } else if (user.name === "Nolan") {
+            Nolan.push(target);
+            console.log(Nolan);
+         } else if (user.name === "Caleb") {
+            Caleb.push(target);
+            console.log(Caleb);
+         } else if (user.name === "Johnny") {
+            Johnny.push(target);
+            console.log(Johnny);
+         } else if (user.name === "Anthony") {
+            Anthony.push(target);
+            console.log(Anthony);
+         } else if (user.name === "Alem") {
+            Alem.push(target);
+            console.log(Alem);
+         } else if (user.name === "Etta") {
+            Etta.push(target);
+            console.log(Etta);
+         } else {
+            res.writeHead(404, { "Content-Type": "text/plain" });
+            res.end("User not found");
+         }
+      } catch (err) {
+         res.writeHead(404, { "Content-Type": "text/plain" });
+         res.end("Unexpected error");
+      }
+      res.writeHead(200, { "Content-Type": "text/plain" });
+      res.end("Success");
    }
 
    if (req.url === path.normalize("/")) {
@@ -49,10 +92,40 @@ const server = http.createServer((req, res) => {
       res.end("0");
       console.log(req.url);
 
-      /* end point as ./sender=####&id=#### */
-   } else if (req.url === path.normalize(`/group5/lanyard/`)) {
+      /* End points for users to call API */
+   } else if (req.url === path.normalize("/group5/u/etta")) {
       try {
-         res.end(JSON.stringify(findUserData("0015")));
+         res.end(JSON.stringify(Etta));
+      } catch (err) {
+         return;
+      }
+   } else if (req.url === path.normalize("/group5/u/anthony")) {
+      try {
+         res.end(JSON.stringify(Anthony));
+      } catch (err) {
+         return;
+      }
+   } else if (req.url === path.normalize("/group5/u/alem")) {
+      try {
+         res.end(JSON.stringify(Alem));
+      } catch (err) {
+         return;
+      }
+   } else if (req.url === path.normalize("/group5/u/nolan")) {
+      try {
+         res.end(JSON.stringify(Nolan));
+      } catch (err) {
+         return;
+      }
+   } else if (req.url === path.normalize("/group5/u/johnny")) {
+      try {
+         res.end(JSON.stringify(Johnny));
+      } catch (err) {
+         return;
+      }
+   } else if (req.url === path.normalize("/group5/u/caleb")) {
+      try {
+         res.end(JSON.stringify(Caleb));
       } catch (err) {
          return;
       }

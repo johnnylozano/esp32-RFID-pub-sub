@@ -10,7 +10,7 @@ const PORT = 4020;
 
 //* Database */
 let storedUsers = [
-   { id: "0001", name: "Nolan", age: 99, major: "cpe", knownUsers: [] },
+   { id: "0001", name: "Nolan", age: 99, major: "cpe" },
    { id: "0002", name: "Caleb", age: 99, major: "cpe" },
    { id: "0003", name: "Johnny", age: 99, major: "cpe" },
    { id: "0004", name: "Anthony", age: 99, major: "cpe" },
@@ -53,13 +53,11 @@ const server = http.createServer((req, res) => {
          let user = findUserById(qdata.user);
          let target = findUserById(qdata.target);
 
-         if (target === undefined || qdata.user === qdata.target) {
+         /* Prevents storing undefined or target if the target is also the user */
+         if (target === undefined || user === target) {
             res.writeHead(404, { "Content-Type": "text/plain" });
             res.end("Unexpected error");
-         } else if (
-            user.name === "Nolan" &&
-            !user.knownUsers.includes("Nolan")
-         ) {
+         } else if (user.name === "Nolan") {
             Nolan.push(target);
             console.log(Nolan);
          } else if (user.name === "Caleb") {

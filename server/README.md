@@ -8,7 +8,7 @@ URL Parameters
 * Required: user=[4-digit id]
 * Required: target=[4-digit id]
 
-Example URL: /group5/find?user=0001?target=0002
+Example URL: /group5/find?user=0001?&target=0002
 
 Where user is the person scanning, and target is the person who's data gets sent to the broker to be retrieved by the user.
 

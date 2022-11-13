@@ -1,0 +1,11 @@
+C:\Users\Anthony L\source\repos\LanyardIDProject\bin\Debug\LanyardIDProject.exe.config
+C:\Users\Anthony L\source\repos\LanyardIDProject\bin\Debug\LanyardIDProject.exe
+C:\Users\Anthony L\source\repos\LanyardIDProject\bin\Debug\LanyardIDProject.pdb
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.csproj.AssemblyReference.cache
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.Form1.resources
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.Properties.Resources.resources
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.csproj.GenerateResource.cache
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.csproj.CoreCompileInputs.cache
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.exe
+C:\Users\Anthony L\source\repos\LanyardIDProject\obj\Debug\LanyardIDProject.pdb

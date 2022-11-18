@@ -1,7 +1,7 @@
 /********************************************
 * CPE 4020: Device Networks
 * Group 5 lanyard project EPS 32 Source
-* Written by: Nolan Gilmore
+* Written by: Johnny Lozano
 ********************************************/
 
 
@@ -82,8 +82,6 @@ void transmitCode()
   //start an HTTP session 
   http.begin(ServerName);
   
-  //Sometimes broker fails to process code on first try.
-  //Loop will attempt to send data up to 5 times before timing out
   while (httpResponseCode != 200)
   {
     httpResponseCode = http.GET();
@@ -132,21 +130,7 @@ void readRFID(void ) {
 	// Stop encryption on PCD
 	rfid.PCD_StopCrypto1();
 
-  /*
-  *****************************************************
-  Q&D fix for assigning ID numbers.
-  There seems to be an incompatibility with
-  the MRFC-522 arduino library and the ESP32
-  causing the ESP32 to hang whenever an attempt
-  is made to write data to the cards even when
-  using the sample code provided with the library.
-  
-  This code is a simple switch whitch looks at the
-  first byte of the random code stored on the RFID
-  cards and references it with the correct ID number
-  e.g. the first byte is 195, therefore it is ID: 0004
-  *****************************************************
-  */
+
   switch(rfid.uid.uidByte[0])
   {
     case 252:

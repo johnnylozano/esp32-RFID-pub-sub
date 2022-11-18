@@ -1,5 +1,7 @@
 # esp32-RFID-pub-sub
 
+Contributors: Caleb Goodman, Nolan Gilmore, Anthony Lopez, Johnny Lozano, Etta Archere, Alem Sahic
+
 ## Description
 
 The goal of this project is to implement a wearable IoT product with our own Pub/Sub networking model. This means that we cannot use MQTT or any other protocol to transfer data from our device. 

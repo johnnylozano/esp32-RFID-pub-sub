@@ -1,9 +1,3 @@
-/********************************************
-* CPE 4020: Device Networks
-* Group 5 lanyard project EPS 32 Source
-* Written by: Johnny Lozano
-********************************************/
-
 
 #include <SPI.h>
 #include <MFRC522.h>

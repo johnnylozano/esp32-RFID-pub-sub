@@ -14,6 +14,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.Common;
 using System.Security.Permissions;
 
+/********************************************
+ * CPE 4020: Device Networks
+ * Group 5 lanyard Project Server on BBB
+ * By: Anthony Lopez
+ ********************************************/
 
 namespace LanyardIDProject
 {

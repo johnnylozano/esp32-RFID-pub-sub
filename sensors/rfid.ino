@@ -1,7 +1,7 @@
 /********************************************
 * CPE 4020: Device Networks
 * Group 5 lanyard project EPS 32 Source
-* Written by: Johnny Lozano
+* Written by: Nolan Gilmore
 ********************************************/
 
 

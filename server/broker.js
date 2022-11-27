@@ -1,3 +1,8 @@
+/********************************************
+ * CPE 4020: Device Networks
+ * Group 5 lanyard Project Server on BBB
+ * By: Johnny Lozano
+ ********************************************/
 
 /* Required modules */
 const http = require('http');
